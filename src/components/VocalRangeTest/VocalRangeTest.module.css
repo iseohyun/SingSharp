@@ -1,0 +1,404 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.stepCard {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: opacity 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.stepShaded {
+  opacity: 0.48;
+  background: rgba(13, 17, 23, 0.75);
+  border-color: rgba(48, 54, 61, 0.6);
+}
+
+.stepShaded:hover {
+  opacity: 0.85;
+}
+
+.stepActive {
+  border-color: rgba(88, 166, 255, 0.55);
+  box-shadow: 0 0 0 1px rgba(88, 166, 255, 0.2);
+}
+
+.stepHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.stepHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.stepTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.noteBadge {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #58a6ff;
+  background: rgba(88, 166, 255, 0.12);
+  border: 1px solid rgba(88, 166, 255, 0.3);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+}
+
+.actionBtn {
+  background: linear-gradient(135deg, #2ea043 0%, #3fb950 100%);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.86rem;
+  padding: 7px 15px;
+  border-radius: var(--radius-sm);
+  transition: all 0.15s ease;
+}
+
+.actionBtnActive {
+  background: linear-gradient(135deg, #da3633 0%, #f85149 100%);
+  box-shadow: 0 0 0 3px rgba(248, 81, 73, 0.3);
+}
+
+.actionBtnRetry {
+  background: rgba(210, 153, 34, 0.22);
+  color: #e3b341;
+  border: 1px solid rgba(210, 153, 34, 0.55);
+}
+
+.replayBtn {
+  background: rgba(88, 166, 255, 0.16);
+  border: 1px solid rgba(88, 166, 255, 0.5);
+  color: #58a6ff;
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  transition: all 0.15s ease;
+}
+
+.replayBtn:hover {
+  background: #58a6ff;
+  color: #ffffff;
+}
+
+.endBtn {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.82rem;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  transition: all 0.15s ease;
+}
+
+.endBtn:hover {
+  border-color: #58a6ff;
+  color: #58a6ff;
+}
+
+.feedbackRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+}
+
+@media (max-width: 768px) {
+  .feedbackRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gaugeItem {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.gaugeLabelRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+}
+
+.centsScale {
+  position: relative;
+  height: 20px;
+  background: #0d1117;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.safeZone {
+  position: absolute;
+  left: 25%;
+  width: 50%;
+  top: 0;
+  bottom: 0;
+  background: rgba(63, 185, 80, 0.2);
+  border-left: 1px dashed #3fb950;
+  border-right: 1px dashed #3fb950;
+}
+
+.pointer {
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  width: 6px;
+  border-radius: 3px;
+  background: #f778ba;
+  transition: left 60ms linear;
+}
+
+.holdBarTrack {
+  width: 100%;
+  height: 20px;
+  background: #0d1117;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.holdBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, #3fb950, #58a6ff);
+  transition: width 60ms linear;
+}
+
+/* 결과 보고 및 음역대 비교 그래프 */
+.reportCard {
+  background: var(--bg-secondary);
+  border: 1px solid rgba(88, 166, 255, 0.45);
+  border-radius: var(--radius-lg);
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.reportHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.genderToggleGroup {
+  display: inline-flex;
+  background: #0d1117;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 3px;
+  gap: 4px;
+}
+
+.genderBtn {
+  padding: 5px 14px;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  background: transparent;
+  transition: all 0.15s ease;
+}
+
+.genderBtnActive {
+  background: #58a6ff;
+  color: #ffffff;
+}
+
+.comparisonChart {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.chartRow {
+  display: grid;
+  grid-template-columns: 108px 1fr;
+  align-items: center;
+  gap: 12px;
+}
+
+.yAxisLabel {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: right;
+  padding-right: 4px;
+  white-space: nowrap;
+}
+
+.barTrack {
+  position: relative;
+  height: 30px;
+  background: #0d1117;
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.barFillMe {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  background: linear-gradient(90deg, rgba(63, 185, 80, 0.85), rgba(88, 166, 255, 0.9));
+  border: 1px solid #58a6ff;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  padding: 0 6px;
+}
+
+.barFillAvg {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  background: rgba(139, 148, 158, 0.32);
+  border: 1px solid #8b949e;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #e6edf3;
+  white-space: nowrap;
+  padding: 0 6px;
+}
+
+.barFillSinger {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  background: rgba(163, 113, 247, 0.36);
+  border: 1px solid #a371f7;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #e2c5ff;
+  white-space: nowrap;
+  padding: 0 6px;
+}
+
+.barFillSingerHigh {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  background: rgba(247, 120, 186, 0.34);
+  border: 1px solid #f778ba;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #ffd1e8;
+  white-space: nowrap;
+  padding: 0 6px;
+}
+
+.barFillVocalist {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  background: rgba(210, 153, 34, 0.34);
+  border: 1px solid #e3b341;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #f8e3a1;
+  white-space: nowrap;
+  padding: 0 6px;
+}
+
+.barFillVocalistHigh {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  background: rgba(240, 136, 62, 0.38);
+  border: 1px solid #f0883e;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #ffdfb6;
+  white-space: nowrap;
+  padding: 0 6px;
+}
+
+.comfortMarker {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #ffffff;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.9);
+  z-index: 2;
+}
+
+.xAxisRow {
+  display: grid;
+  grid-template-columns: 108px 1fr;
+  gap: 12px;
+  margin-top: 2px;
+}
+
+.xAxisTrack {
+  position: relative;
+  height: 22px;
+  border-top: 1px solid var(--border-color);
+}
+
+.xAxisTick {
+  position: absolute;
+  top: 4px;
+  transform: translateX(-50%);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
