@@ -4,5 +4,5 @@
  * - BUILD_TAG: 일자 기반 캐시 버스팅 태그 (YYYYMMDDvN, 코드 업데이트 시 자동 갱신)
  */
 export const APP_VERSION = '0.1.0';
-export const BUILD_TAG = '20261107v10';
+export const BUILD_TAG = '20261108v1';
 export const FULL_VERSION_STRING = `v${APP_VERSION} (${BUILD_TAG})`;
